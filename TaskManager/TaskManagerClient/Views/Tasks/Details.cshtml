@@ -1,0 +1,23 @@
+﻿@model TaskManagerClient.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Информация о задаче";
+}
+
+<h1>Информация о задаче</h1>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>ID:</strong> @Model.Id</p>
+        <p><strong>Название:</strong> @Model.Title</p>
+        <p><strong>Описание:</strong> @Model.Description</p>
+        <p>
+            <strong>Статус:</strong>
+            @(Model.IsCompleted ? "Выполнено" : "В работе")
+        </p>
+
+        <a asp-action="Edit" asp-route-id="@Model.Id"
+           class="btn btn-primary">Изменить</a>
+        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+    </div>
+</div>
